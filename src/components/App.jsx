@@ -6,15 +6,29 @@ class App extends React.Component {
     neutral: 0,
     bad: 0,
   };
+
   plusGoodPoint = () => {
-    // this.setState;
+    this.setState(prevState => {
+      return { good: prevState.good + 1 };
+    });
   };
+
   plusNeutralPoint = () => {
-    console.log('hello');
+    this.setState(prevState => {
+      return {
+        neutral: prevState.neutral + 1,
+      };
+    });
   };
+
   plusBadPoint = () => {
-    console.log('bad');
+    this.setState(prevState => {
+      return {
+        bad: prevState.bad + 1,
+      };
+    });
   };
+
   render() {
     return (
       <div>
