@@ -1,4 +1,6 @@
 import React from 'react';
+import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
+import Statistics from './Statistics/Statistics';
 
 class App extends React.Component {
   state = {
@@ -34,15 +36,25 @@ class App extends React.Component {
       <div>
         <section>
           <h2>Please leave feedback</h2>
-          <div>
-            <button onClick={this.plusGoodPoint}>Good</button>
-            <button onClick={this.plusNeutralPoint}>Neutral</button>
-            <button onClick={this.plusBadPoint}>Bad</button>
-          </div>
+          <FeedbackOptions
+            options={['Good', 'Neutral', 'Bad']}
+            onLeaveFeedback={{
+              onPlus: this.plusGoodPoint,
+              onNeutral: this.plusNeutralPoint,
+              onBad: this.plusBadPoint,
+            }}
+          />
         </section>
         <section>
           <h2>Statistics</h2>
-          <div>
+          <Statistics
+            good={this.state.good}
+            neutral={this.state.neutral}
+            bad={this.state.bad}
+            //total={total}
+            positivePercentage={null}
+          />
+          {/* <div>
             <p>
               Good: <span>{this.state.good}</span>
             </p>
@@ -54,7 +66,7 @@ class App extends React.Component {
             </p>
             <p>Total </p>
             <p>Positive feedback: </p>
-          </div>
+          </div> */}
         </section>
       </div>
     );
