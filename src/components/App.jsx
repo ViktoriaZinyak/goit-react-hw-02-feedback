@@ -31,10 +31,10 @@ class App extends React.Component {
     });
   };
 
-  countTotal = () =>
-    ' this.prevState.good + this.prevState.neutral + this.prevState.bad';
+  countTotal = () => this.state.good + this.state.neutral + this.state.bad;
 
   render() {
+    //const total = this.countTotal();
     return (
       <div>
         <section>
@@ -54,7 +54,7 @@ class App extends React.Component {
             good={this.state.good}
             neutral={this.state.neutral}
             bad={this.state.bad}
-            total={this.countTotal}
+            total={this.countTotal()}
             //total={{ onCountTotal: this.countTotal }}
             // positivePercentage={null}
           />
