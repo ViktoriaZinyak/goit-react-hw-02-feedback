@@ -1,11 +1,12 @@
 import React from 'react';
+import { Button } from './FeedbackOptopns.styled';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <div>
-      <button onClick={onLeaveFeedback.onPlus}>{options[0]}</button>
-      <button onClick={onLeaveFeedback.onNeutral}>{options[1]}</button>
-      <button onClick={onLeaveFeedback.onBad}>{options[2]}</button>
+      <Button onClick={onLeaveFeedback.onPlus}>{options[0]}</Button>
+      <Button onClick={onLeaveFeedback.onNeutral}>{options[1]}</Button>
+      <Button onClick={onLeaveFeedback.onBad}>{options[2]}</Button>
     </div>
   );
 };
