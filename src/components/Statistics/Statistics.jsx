@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
-  //positivePercentage = (good * 100) / total;
   return (
     <div>
       <p>
