@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Wrap } from './Statistics.styled';
 
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
   return (
-    <div>
+    <Wrap>
       <p>
         Good: <span>{good}</span>
       </p>
@@ -16,8 +18,16 @@ const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
         Total: <span>{total}</span>
       </p>
       <p>Positive feedback: {positivePercentage}%</p>
-    </div>
+    </Wrap>
   );
 };
 
 export default Statistics;
+
+Statistics.ptopTypes = {
+  good: PropTypes.number,
+  neutral: PropTypes.number,
+  bad: PropTypes.number,
+  total: PropTypes.number,
+  positivePercentage: PropTypes.number,
+};

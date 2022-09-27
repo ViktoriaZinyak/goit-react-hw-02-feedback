@@ -11,24 +11,32 @@ class App extends React.Component {
     bad: 0,
   };
 
-  plusGoodPoint = () => {
-    this.setState(prevState => {
-      return { good: prevState.good + 1 };
-    });
-  };
+  // plusGoodPoint = () => {
+  //   this.setState(prevState => {
+  //     return { good: prevState.good + 1 };
+  //   });
+  // };
 
-  plusNeutralPoint = () => {
+  // plusNeutralPoint = () => {
+  //   this.setState(prevState => {
+  //     return {
+  //       neutral: prevState.neutral + 1,
+  //     };
+  //   });
+  // };
+
+  // plusBadPoint = () => {
+  //   this.setState(prevState => {
+  //     return {
+  //       bad: prevState.bad + 1,
+  //     };
+  //   });
+  // };
+
+  plusPoint = option => {
     this.setState(prevState => {
       return {
-        neutral: prevState.neutral + 1,
-      };
-    });
-  };
-
-  plusBadPoint = () => {
-    this.setState(prevState => {
-      return {
-        bad: prevState.bad + 1,
+        [option]: prevState[option] + 1,
       };
     });
   };
@@ -45,12 +53,8 @@ class App extends React.Component {
       <div>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={['Good', 'Neutral', 'Bad']}
-            onLeaveFeedback={{
-              onPlus: this.plusGoodPoint,
-              onNeutral: this.plusNeutralPoint,
-              onBad: this.plusBadPoint,
-            }}
+            options={Object.keys(this.state)}
+            onLeaveFeedback={this.plusPoint}
           />
         </Section>
         <Section title="Statistics">
